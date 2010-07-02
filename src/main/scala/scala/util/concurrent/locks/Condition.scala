@@ -1,5 +1,7 @@
 package scala.util.concurrent.locks
 
+import scala.util.concurrent.Duration
+
 trait AbstractCondition {
   def condition: Boolean
 

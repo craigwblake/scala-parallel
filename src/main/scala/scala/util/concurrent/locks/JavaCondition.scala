@@ -2,6 +2,7 @@ package scala.util.concurrent.locks
 
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.locks.{Lock => JLock, Condition => JCondition}
+import scala.util.concurrent.Duration
 
 class AbstractJavaCondition(cond: => Boolean, val underlying: JCondition)
 extends AbstractCondition {

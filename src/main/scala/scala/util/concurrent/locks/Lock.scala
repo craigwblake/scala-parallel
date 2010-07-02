@@ -1,6 +1,7 @@
 package scala.util.concurrent.locks
 
 import java.util.concurrent.locks.{Lock => JLock}
+import scala.util.concurrent.Duration
 
 object Lock {
   def apply(lock: JLock): JavaLock = new JavaLock(lock)

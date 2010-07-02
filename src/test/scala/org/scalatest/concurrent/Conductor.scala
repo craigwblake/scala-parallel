@@ -3,7 +3,7 @@ package org.scalatest.concurrent
 import java.util.concurrent._
 import Thread.State._
 import scala.util.concurrent.PimpedThreadGroup._
-import scala.collection.jcl.Conversions.convertList
+import scala.collection.JavaConversions._
 
 /**
  * @author Josh Cough

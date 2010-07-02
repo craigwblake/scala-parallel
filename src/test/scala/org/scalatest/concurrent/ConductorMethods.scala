@@ -1,12 +1,15 @@
 package org.scalatest.concurrent
 
 import java.util.concurrent.atomic.AtomicReference
+import org.scalatest._
 
 /**
  * Date: Jun 16, 2009
  * Time: 7:25:34 PM
  * @author Josh Cough
  */
+
+ /*
 trait ConductorMethods extends Suite with Logger{ thisSuite =>
 
   private val conductor = new AtomicReference[Conductor]()
@@ -17,16 +20,13 @@ trait ConductorMethods extends Suite with Logger{ thisSuite =>
   protected def tick = conductor.get.tick
   protected implicit def addThreadsMethodToInt(nrThreads:Int) = conductor.get.addThreadsMethodToInt(nrThreads)
 
-  /**
-   * 
-   */
   abstract override def runTest(testName: String, reporter: Reporter, stopper: Stopper, properties: Map[String, Any]) {
 
     conductor.compareAndSet(conductor.get, new Conductor(this))
 
     val interceptor = new PassFailInterceptor(reporter)
 
-    super.runTest(testName, interceptor, stopper, properties)
+    super.runTest(testName, interceptor, stopper, properties, new Tracker())
 
     interceptor.failReport match {
       case Some(r) => reporter testFailed r
@@ -34,9 +34,6 @@ trait ConductorMethods extends Suite with Logger{ thisSuite =>
     }
   }
 
-  /**
-   *
-   */
   private def runConductor(testName:String, reporter:Reporter, interceptor:PassFailInterceptor){
     try {
       conductor.get.execute()
@@ -60,9 +57,6 @@ trait ConductorMethods extends Suite with Logger{ thisSuite =>
     }
   }
 
-  /**
-   * 
-   */
   private class PassFailInterceptor(original: Reporter) extends Reporter {
 
     var successReport: Option[Report] = None
@@ -84,3 +78,4 @@ trait ConductorMethods extends Suite with Logger{ thisSuite =>
     override def runCompleted = original.runCompleted
   }
 }
+*/

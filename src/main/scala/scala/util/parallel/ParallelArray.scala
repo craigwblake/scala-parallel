@@ -23,7 +23,7 @@ object ParallelArray{
   }
 }
 
-case class ParallelArray[A](data: Array[A], pool:Pool, val seqentialThreshold: Int){
+case class ParallelArray[A: Manifest](data: Array[A], pool:Pool, val seqentialThreshold: Int){
 
   // all these go away with 2.8 default args
   def this(data: Array[A]) = this(data, ParallelArray.DefaultPool, ParallelArray.defaultSequentialThreshold)
@@ -49,7 +49,7 @@ case class ParallelArray[A](data: Array[A], pool:Pool, val seqentialThreshold: I
 
   // these three require a new array, and populate mutably.
   // the do not work off mapreduce!
-  def map[B](f: A => B) = {
+  def map[B](implicit m: scala.reflect.Manifest[B], f: A => B) = {
     val sequentialMapper = sequentialMutator[B](new Array[B](data.size), f, t => true) _
     val mapAction = new BinaryRecursiveAction[Array[B]]((l,r)=>l, sequentialMapper)
     ParallelArray(pool.invokeAndGet(mapAction), pool, seqentialThreshold)

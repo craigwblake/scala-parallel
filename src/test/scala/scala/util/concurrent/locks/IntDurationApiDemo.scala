@@ -1,10 +1,10 @@
 package scala.util.concurrent.locks
 
 import Implicits._
-import Duration._
 import org.scalatest.matchers.{MustMatchers, MustBeSugar}
 import java.util.concurrent.locks.{ReentrantLock=>JReentrantLock}
 import org.scalatest.{DemoSuite}
+import scala.util.concurrent.Duration._
 
 /**
  * Simply demonstrate using the Duration methods on Int
