@@ -2,4 +2,4 @@
 target
 out
 project/boot
-lib_managed/
+lib_managed/project
